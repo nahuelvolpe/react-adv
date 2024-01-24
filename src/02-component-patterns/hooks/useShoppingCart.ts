@@ -8,35 +8,18 @@ export const useShoppingCart = () => {
 
   const onProductCountChange = ({ count, product }: onChangeArgs) => {
     setShoppingCart((oldShoppingCart) => {
-      const productInCart: ProductInCart = oldShoppingCart[product.id] || {
-        ...product,
-        count: 0,
-      };
+      if (count === 0) {
+        //Otra forma de eliminar un elemento de un array de objetos:
+        const { [product.id]: toDelete, ...rest } = oldShoppingCart;
+        console.log(toDelete);
 
-      if (Math.max(productInCart.count + count, 0) > 0) {
-        productInCart.count += count;
-        return {
-          ...oldShoppingCart,
-          [product.id]: productInCart,
-        };
+        return rest;
       }
 
-      //Si no, borrar el producto
-      const { [product.id]: toDelete, ...rest } = oldShoppingCart;
-      return rest;
-
-      // if (count === 0) {
-      //   //Otra forma de eliminar un elemento de un array de objetos:
-      //   const { [product.id]: toDelete, ...rest } = oldShoppingCart;
-      //   console.log(toDelete);
-
-      //   return rest;
-      // }
-
-      // return {
-      //   ...oldShoppingCart,
-      //   [product.id]: { ...product, count },
-      // };
+      return {
+        ...oldShoppingCart,
+        [product.id]: { ...product, count },
+      };
     });
   };
 
