@@ -1,0 +1,72 @@
+[
+    {
+        "type": "input",
+        "name": "firstName",
+        "placeholder": "Nahuel",
+        "label": "First Name",
+        "value": "",
+        "validations": [
+            {
+                "type": "required"
+            },
+            {
+                "type": "minLength",
+                "value": 5
+            }
+        ]
+    },
+    {
+        "type": "input",
+        "name": "lastName",
+        "placeholder": "Volpe",
+        "label": "Last Name",
+        "value": "",
+        "validations": [
+            {
+                "type": "required"
+            },
+            {
+                "type": "minLength",
+                "value": 5
+            }
+        ]
+    },
+    {
+        "type": "email",
+        "name": "email",
+        "placeholder": "email@gmail.com",
+        "label": "Email",
+        "value": "",
+        "validations": [
+            {
+                "type": "required"
+            },
+            {
+                "type": "email"
+            }
+        ]
+    },
+    {
+        "type": "select",
+        "name": "favoriteGame",
+        "label": "Favorite Game",
+        "value": "",
+        "options": [
+            {
+                "id": 1, 
+                "label": "Star Wars Jedi Fallen Order"
+            }, 
+            {
+                "id": 2, 
+                "label": "Gran Turismo 6"
+            }, 
+            {
+                "id": 3, 
+                "label": "God of War 3"
+            } 
+        ],
+        "validations": [{
+            "type": "required"
+        }]
+    }
+]
