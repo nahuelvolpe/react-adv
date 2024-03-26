@@ -50,7 +50,7 @@ export const DynamicForm = () => {
         }}
       >
         {(formik) => (
-          <Form>
+          <Form noValidate>
             {formJson.map(({ type, name, placeholder, label, options }) => {
               if (type === "password" || type === "input" || type === "email") {
                 return (
@@ -64,7 +64,7 @@ export const DynamicForm = () => {
                 );
               } else if (type === "select") {
                 return (
-                  <SelectCustom key={name} name={label} label={label}>
+                  <SelectCustom key={name} name={name} label={label}>
                     <option value="">Select an option</option>
                     {options?.map(({ id, label }) => (
                       <option key={id} value={id}>
